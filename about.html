@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About — sheep.fyi</title>
+    <meta name="description" content="About sheep.fyi and the SHEEP class sites — built and taught by Nathan Strutz." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+      }
+      body {
+        background: #f4f1e8;
+        color: #17150f;
+        font-family: "Space Mono", monospace;
+        display: flex;
+        justify-content: center;
+        padding: clamp(28px, 5vw, 72px) clamp(24px, 5vw, 76px) 48px;
+        min-height: 100vh;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:hover {
+        opacity: 0.85;
+      }
+      ::selection {
+        background: #c8ff2e;
+        color: #17150f;
+      }
+
+      .page {
+        width: 100%;
+        max-width: 1120px;
+        display: flex;
+        flex-direction: column;
+        min-height: calc(100vh - 96px);
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        gap: 16px;
+      }
+      .topbar a.home {
+        font-weight: 700;
+        border-bottom: 2px solid #c8ff2e;
+        padding-bottom: 1px;
+      }
+      .topbar .crumb span {
+        color: rgba(23, 21, 15, 0.5);
+      }
+      .rule {
+        height: 1px;
+        background: rgba(23, 21, 15, 0.2);
+        margin-top: 14px;
+      }
+
+      .masthead {
+        margin-top: clamp(48px, 7vw, 78px);
+      }
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(23, 21, 15, 0.5);
+      }
+      h1 {
+        font-family: "Instrument Serif", serif;
+        font-weight: 400;
+        font-size: clamp(52px, 9vw, 92px);
+        line-height: 0.98;
+        letter-spacing: -0.01em;
+        margin: 18px 0 0;
+      }
+      h1 .hl {
+        background: #c8ff2e;
+        padding: 0 0.1em;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+
+      .body {
+        margin-top: clamp(52px, 8vw, 80px);
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: clamp(32px, 5vw, 64px);
+        align-items: start;
+      }
+      @media (max-width: 800px) {
+        .body {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* photo placeholder */
+      .photo {
+        aspect-ratio: 4 / 5;
+        border: 1px solid rgba(23, 21, 15, 0.28);
+        background-image: repeating-linear-gradient(45deg, rgba(23, 21, 15, 0.05) 0 10px, transparent 10px 20px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+        position: relative;
+      }
+      .photo .tag {
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(23, 21, 15, 0.55);
+        line-height: 1.8;
+      }
+      .photo .corner {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(23, 21, 15, 0.4);
+      }
+      .caption {
+        margin-top: 12px;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(23, 21, 15, 0.5);
+      }
+
+      .prose {
+        max-width: 620px;
+      }
+      .prose .kick {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(26px, 3.6vw, 36px);
+        line-height: 1.2;
+        margin: 0 0 24px;
+      }
+      .prose p {
+        font-size: 15px;
+        line-height: 1.85;
+        color: rgba(23, 21, 15, 0.78);
+        margin: 0 0 18px;
+      }
+      .prose .placeholder {
+        border-left: 2px solid #c8ff2e;
+        padding: 4px 0 4px 18px;
+        color: rgba(23, 21, 15, 0.5);
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .prose .placeholder b {
+        color: #17150f;
+      }
+
+      .facts {
+        margin-top: 40px;
+        border-top: 1px solid rgba(23, 21, 15, 0.18);
+        padding-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 32px;
+      }
+      .fact .k {
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(23, 21, 15, 0.5);
+      }
+      .fact .v {
+        margin-top: 6px;
+        font-size: 14px;
+      }
+      .fact a {
+        border-bottom: 2px solid #c8ff2e;
+        padding-bottom: 1px;
+      }
+
+      footer {
+        margin-top: auto;
+        padding-top: 56px;
+      }
+      footer .bar {
+        height: 2px;
+        background: #17150f;
+      }
+      .colophon {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 16px;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+      }
+      .colophon .k {
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: rgba(23, 21, 15, 0.5);
+      }
+      .colophon .who {
+        margin-top: 8px;
+        font-size: 15px;
+      }
+      .colophon a {
+        border-bottom: 2px solid #c8ff2e;
+        padding-bottom: 1px;
+      }
+      .colophon .nav {
+        text-align: right;
+        color: rgba(23, 21, 15, 0.5);
+      }
+      .colophon .nav .links {
+        color: #17150f;
+      }
+
+      @media (max-width: 640px) {
+        .topbar {
+          flex-wrap: wrap;
+        }
+        .topbar .crumb {
+          flex-basis: 100%;
+        }
+        .facts {
+          grid-template-columns: 1fr;
+        }
+        .colophon .nav {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="topbar">
+        <a class="home" href="/">sheep.fyi</a>
+        <div class="crumb">
+          <span>Summerville Home Education Enriching Programs</span>
+        </div>
+      </div>
+      <div class="rule"></div>
+
+      <div class="masthead">
+        <div class="eyebrow">About</div>
+        <h1>Who built <span class="hl">this</span>, and why.</h1>
+      </div>
+
+      <div class="body">
+        <div>
+          <div class="photo">
+            <div class="corner">4:5 portrait</div>
+            <div class="tag">drop photo here<br />&mdash;<br />replace this block<br />with your image</div>
+          </div>
+          <div class="caption">Nathan Strutz · CS teacher, SHEEP</div>
+        </div>
+
+        <div class="prose">
+          <p class="kick">Hi — I'm Nathan Strutz. I teach the computer classes at SHEEP, our homeschool co-op.</p>
+
+          <div class="placeholder">
+            <b>[ Your bio goes here ]</b><br />
+            Replace this block with a few paragraphs about yourself — your background, what you build, why you teach,
+            and what students can expect. Keep it in your own voice.
+          </div>
+
+          <p style="margin-top: 24px">
+            sheep.fyi is the little home page for the class sites I host. Each class gets its own small, fast website —
+            plain markdown, published in a keystroke — and this page ties them together. More classes and teachers will
+            join over time.
+          </p>
+
+          <div class="facts">
+            <div class="fact">
+              <div class="k">Teaches</div>
+              <div class="v">Fundamentals · CS · Programming</div>
+            </div>
+            <div class="fact">
+              <div class="k">Co-op</div>
+              <div class="v">SHEEP — Summerville Home Education Enriching Programs</div>
+            </div>
+            <div class="fact">
+              <div class="k">Email</div>
+              <div class="v">
+                <a href="mailto:nathan@sheep.education">nathan@sheep.education</a>
+              </div>
+            </div>
+            <div class="fact">
+              <div class="k">More</div>
+              <div class="v">
+                <a href="/teachers">Host your class →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="bar"></div>
+        <div class="colophon">
+          <div>
+            <div class="k">Built &amp; taught by</div>
+            <div class="who">
+              Nathan Strutz —
+              <a href="mailto:nathan@sheep.education">nathan@sheep.education</a>
+            </div>
+          </div>
+          <div class="nav">
+            <div class="links">
+              <a href="/">Home</a> ·
+              <a href="/teachers">For teachers</a>
+            </div>
+            <div style="margin-top: 6px">more coming soon</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

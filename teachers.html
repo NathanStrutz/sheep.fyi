@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>For Teachers — sheep.fyi</title>
+    <meta
+      name="description"
+      content="Host your class website at sheep.fyi — a small, fast, markdown-based site for your SHEEP class. Here's how to get one." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+      }
+      body {
+        background: #f4f1e8;
+        color: #17150f;
+        font-family: "Space Mono", monospace;
+        display: flex;
+        justify-content: center;
+        padding: clamp(28px, 5vw, 72px) clamp(24px, 5vw, 76px) 48px;
+        min-height: 100vh;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:hover {
+        opacity: 0.85;
+      }
+      ::selection {
+        background: #c8ff2e;
+        color: #17150f;
+      }
+
+      .page {
+        width: 100%;
+        max-width: 1120px;
+        display: flex;
+        flex-direction: column;
+        min-height: calc(100vh - 96px);
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        gap: 16px;
+      }
+      .topbar a.home {
+        font-weight: 700;
+        border-bottom: 2px solid #c8ff2e;
+        padding-bottom: 1px;
+      }
+      .topbar .crumb span {
+        color: rgba(23, 21, 15, 0.5);
+      }
+      .rule {
+        height: 1px;
+        background: rgba(23, 21, 15, 0.2);
+        margin-top: 14px;
+      }
+
+      .masthead {
+        margin-top: clamp(48px, 7vw, 78px);
+      }
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(23, 21, 15, 0.5);
+      }
+      h1 {
+        font-family: "Instrument Serif", serif;
+        font-weight: 400;
+        font-size: clamp(50px, 8.4vw, 92px);
+        line-height: 0.98;
+        letter-spacing: -0.01em;
+        margin: 18px 0 0;
+      }
+      h1 .hl {
+        background: #c8ff2e;
+        padding: 0 0.1em;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+      .lede {
+        font-size: 15px;
+        line-height: 1.75;
+        color: rgba(23, 21, 15, 0.72);
+        max-width: 600px;
+        margin: 30px 0 0;
+      }
+
+      .sechead {
+        margin-top: clamp(52px, 8vw, 84px);
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .sechead .label {
+        font-size: 12px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+      }
+      .sechead .meta {
+        font-size: 12px;
+        letter-spacing: 0.26em;
+        color: rgba(23, 21, 15, 0.5);
+      }
+
+      .steps {
+        margin-top: 8px;
+      }
+      .step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: clamp(16px, 3vw, 30px);
+        align-items: start;
+        padding: 30px 22px;
+        border-top: 1px solid rgba(23, 21, 15, 0.18);
+      }
+      .steps .step:last-child {
+        border-bottom: 1px solid rgba(23, 21, 15, 0.18);
+      }
+      .step .num {
+        font-family: "Instrument Serif", serif;
+        font-size: 70px;
+        line-height: 0.8;
+      }
+      .step:nth-child(1) .num {
+        transform: rotate(-6deg);
+      }
+      .step:nth-child(2) .num {
+        transform: rotate(4deg);
+      }
+      .step:nth-child(3) .num {
+        transform: rotate(-3deg);
+      }
+      .step:nth-child(4) .num {
+        transform: rotate(5deg);
+      }
+      .step .title {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(26px, 3.6vw, 36px);
+        line-height: 1.02;
+      }
+      .step .desc {
+        font-size: 14px;
+        line-height: 1.7;
+        color: rgba(23, 21, 15, 0.68);
+        margin-top: 12px;
+        max-width: 560px;
+      }
+      .step .desc code {
+        background: rgba(200, 255, 46, 0.35);
+        padding: 1px 6px;
+        font-size: 13px;
+      }
+
+      .cols {
+        margin-top: clamp(36px, 5vw, 52px);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(28px, 4vw, 56px);
+      }
+      @media (max-width: 720px) {
+        .cols {
+          grid-template-columns: 1fr;
+        }
+      }
+      .col h3 {
+        font-family: "Instrument Serif", serif;
+        font-weight: 400;
+        font-size: 30px;
+        margin: 0 0 18px;
+      }
+      .checklist {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .checklist li {
+        position: relative;
+        padding: 0 0 14px 26px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(23, 21, 15, 0.8);
+      }
+      .checklist li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        background: #c8ff2e;
+      }
+      .checklist li b {
+        color: #17150f;
+      }
+
+      .cta {
+        margin-top: clamp(44px, 6vw, 68px);
+        border: 2px solid #17150f;
+        padding: clamp(28px, 4vw, 44px);
+      }
+      .cta .k {
+        font-size: 12px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: rgba(23, 21, 15, 0.5);
+      }
+      .cta h2 {
+        font-family: "Instrument Serif", serif;
+        font-weight: 400;
+        font-size: clamp(34px, 5vw, 52px);
+        line-height: 1.02;
+        margin: 14px 0 0;
+      }
+      .cta p {
+        font-size: 14px;
+        line-height: 1.75;
+        color: rgba(23, 21, 15, 0.72);
+        max-width: 560px;
+        margin: 18px 0 0;
+      }
+      .cta .actions {
+        margin-top: 28px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 28px;
+        align-items: center;
+      }
+      .cta .btn {
+        background: #17150f;
+        color: #f4f1e8;
+        font-size: 13px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 14px 22px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .cta .btn:hover {
+        background: #17150f;
+        opacity: 1;
+        box-shadow: 5px 5px 0 #c8ff2e;
+      }
+      .cta .or {
+        font-size: 13px;
+        color: rgba(23, 21, 15, 0.6);
+      }
+      .cta .or a {
+        border-bottom: 2px solid #c8ff2e;
+        padding-bottom: 1px;
+      }
+
+      footer {
+        margin-top: auto;
+        padding-top: 56px;
+      }
+      footer .bar {
+        height: 2px;
+        background: #17150f;
+      }
+      .colophon {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 16px;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+      }
+      .colophon .k {
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: rgba(23, 21, 15, 0.5);
+      }
+      .colophon .who {
+        margin-top: 8px;
+        font-size: 15px;
+      }
+      .colophon a {
+        border-bottom: 2px solid #c8ff2e;
+        padding-bottom: 1px;
+      }
+      .colophon .nav {
+        text-align: right;
+        color: rgba(23, 21, 15, 0.5);
+      }
+      .colophon .nav .links {
+        color: #17150f;
+      }
+
+      @media (max-width: 640px) {
+        .topbar {
+          flex-wrap: wrap;
+        }
+        .topbar .crumb {
+          flex-basis: 100%;
+        }
+        .step {
+          grid-template-columns: 56px 1fr;
+          gap: 4px 16px;
+          padding: 26px 4px;
+        }
+        .step .num {
+          font-size: 46px;
+        }
+        .colophon .nav {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="topbar">
+        <a class="home" href="index.html">sheep.fyi</a>
+        <div class="crumb">
+          <span>Summerville Home Education Enriching Programs</span>
+        </div>
+      </div>
+      <div class="rule"></div>
+
+      <div class="masthead">
+        <div class="eyebrow">For teachers</div>
+        <h1>Bring your class<br />to <span class="hl">sheep.fyi</span>.</h1>
+        <p class="lede">
+          Teaching a class at SHEEP? I'll host a small, fast website for it — your syllabus, notes, and links, all at
+          your own subdomain. It's free, it stays out of your way, and updating it is as easy as editing a text file.
+        </p>
+      </div>
+
+      <div class="sechead">
+        <div class="label">How it works</div>
+        <div class="meta">04 steps</div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">01</div>
+          <div>
+            <div class="title">Send me your class</div>
+            <div class="desc">
+              Email me what your class covers and any materials you already have — a syllabus, notes, a doc, even a
+              rough outline. Don't worry about formatting.
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <div>
+            <div class="title">Pick a subdomain</div>
+            <div class="desc">
+              Your site lives at its own address, like
+              <code>your-class.sheep.fyi</code>. Tell me what you'd like it to be.
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <div>
+            <div class="title">I build &amp; publish it</div>
+            <div class="desc">
+              I turn your materials into a clean, plain-markdown site and put it live. No accounts, no ads, no clutter —
+              just your content, fast.
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">04</div>
+          <div>
+            <div class="title">Update it anytime</div>
+            <div class="desc">
+              Need a change? Send it over, or learn the markdown yourself — it's just text. Edits go live in minutes.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cols">
+        <div class="col">
+          <h3>What you get</h3>
+          <ul class="checklist">
+            <li>Your own <b>subdomain</b> at sheep.fyi</li>
+            <li>A <b>clean, fast, mobile-friendly</b> site</li>
+            <li>Written in <b>plain markdown</b> — easy to edit</li>
+            <li><b>Free hosting</b>, no ads, no tracking clutter</li>
+            <li>As many pages as your class needs</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3>What to include</h3>
+          <ul class="checklist">
+            <li><b>Class name</b> and a one-line description</li>
+            <li><b>Grade or age range</b> you teach</li>
+            <li>Your preferred <b>subdomain</b></li>
+            <li>Any <b>materials</b> — syllabus, notes, links, schedule</li>
+            <li>How you'd like to <b>handle updates</b> (I'll do it, or you will)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta">
+        <div class="k">Ready when you are</div>
+        <h2>Let's get your class online.</h2>
+        <p>
+          Send me the details above and I'll follow up with your subdomain and a first draft. No commitment — reach out
+          and we'll figure out the rest.
+        </p>
+        <div class="actions">
+          <a
+            class="btn"
+            href="mailto:nathan@sheep.education?subject=New%20class%20site%20for%20sheep.fyi&body=Class%20name%3A%0AOne-line%20description%3A%0AGrade%2Fage%20range%3A%0APreferred%20subdomain%3A%20____.sheep.fyi%0AMaterials%20(links%20or%20attached)%3A%0AWho%20updates%20it%3A%0A"
+            >Email Nathan ↗</a
+          >
+          <span class="or"
+            >or write directly to <a href="mailto:nathan@sheep.education">nathan@sheep.education</a></span
+          >
+        </div>
+      </div>
+
+      <footer>
+        <div class="bar"></div>
+        <div class="colophon">
+          <div>
+            <div class="k">Built &amp; taught by</div>
+            <div class="who">
+              Nathan Strutz —
+              <a href="mailto:nathan@sheep.education">nathan@sheep.education</a>
+            </div>
+          </div>
+          <div class="nav">
+            <div class="links">
+              <a href="index.html">Home</a> ·
+              <a href="about.html">About</a>
+            </div>
+            <div style="margin-top: 6px">more coming soon</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
