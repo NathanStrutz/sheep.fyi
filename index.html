@@ -6,219 +6,13 @@
     <title>sheep.fyi | SHEEP class sites</title>
     <meta
       name="description"
-      content="sheep.fyi hosts the class websites for SHEEP — Summerville Home Education Enriching Programs. A small, fast home for every class site." />
+      content="sheep.fyi hosts the class websites for SHEEP (Summerville Home Education Enriching Programs). A small, fast home for every class site." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet" />
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-      }
-      body {
-        background: #f4f1e8;
-        color: #17150f;
-        font-family: "Space Mono", monospace;
-        display: flex;
-        justify-content: center;
-        padding: clamp(28px, 5vw, 72px) clamp(24px, 5vw, 76px) 48px;
-        min-height: 100vh;
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      a:hover {
-        opacity: 0.85;
-      }
-      ::selection {
-        background: #c8ff2e;
-        color: #17150f;
-      }
-
-      .page {
-        width: 100%;
-        max-width: 1120px;
-        display: flex;
-        flex-direction: column;
-        min-height: calc(100vh - 96px);
-      }
-
-      .topbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 12px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        gap: 16px;
-      }
-      .topbar b {
-        font-weight: 700;
-      }
-      .topbar span {
-        color: rgba(23, 21, 15, 0.5);
-        text-align: right;
-      }
-      .rule {
-        height: 1px;
-        background: rgba(23, 21, 15, 0.2);
-        margin-top: 14px;
-      }
-
-      .masthead {
-        margin-top: clamp(48px, 7vw, 78px);
-      }
-      .eyebrow {
-        font-size: 12px;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        color: rgba(23, 21, 15, 0.5);
-      }
-      h1 {
-        font-family: "Instrument Serif", serif;
-        font-weight: 400;
-        font-size: clamp(52px, 9vw, 98px);
-        line-height: 0.98;
-        letter-spacing: -0.01em;
-        margin: 18px 0 0;
-      }
-      h1 .hl {
-        background: #c8ff2e;
-        padding: 0 0.1em;
-        box-decoration-break: clone;
-        -webkit-box-decoration-break: clone;
-      }
-      .lede {
-        font-size: 15px;
-        line-height: 1.75;
-        color: rgba(23, 21, 15, 0.72);
-        max-width: 580px;
-        margin: 30px 0 0;
-      }
-
-      .listhead {
-        margin-top: clamp(52px, 8vw, 84px);
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-      }
-      .listhead .label {
-        font-size: 12px;
-        letter-spacing: 0.26em;
-        text-transform: uppercase;
-      }
-      .listhead .count {
-        font-size: 12px;
-        letter-spacing: 0.26em;
-        color: rgba(23, 21, 15, 0.5);
-      }
-
-      .rows {
-        margin-top: 8px;
-      }
-      .row {
-        display: grid;
-        grid-template-columns: 100px 1fr auto;
-        gap: clamp(16px, 3vw, 30px);
-        align-items: start;
-        padding: 32px 22px;
-        border-top: 1px solid rgba(23, 21, 15, 0.18);
-        transition: background 0.18s;
-      }
-      .row:last-child {
-        border-bottom: 1px solid rgba(23, 21, 15, 0.18);
-      }
-      .row:hover {
-        background: rgba(200, 255, 46, 0.2);
-      }
-      .row .num {
-        font-family: "Instrument Serif", serif;
-        font-size: 70px;
-        line-height: 0.8;
-      }
-      .row:nth-child(1) .num {
-        transform: rotate(-6deg);
-      }
-      .row:nth-child(2) .num {
-        transform: rotate(4deg);
-      }
-      .row:nth-child(3) .num {
-        transform: rotate(-3deg);
-      }
-      .row .title {
-        font-family: "Instrument Serif", serif;
-        font-size: clamp(30px, 4vw, 40px);
-        line-height: 1;
-      }
-      .row .desc {
-        font-size: 14px;
-        line-height: 1.6;
-        color: rgba(23, 21, 15, 0.68);
-        margin-top: 12px;
-        max-width: 520px;
-      }
-      .row .url {
-        font-size: 13px;
-        margin-top: 16px;
-        letter-spacing: 0.02em;
-        border-bottom: 2px solid #c8ff2e;
-        display: inline-block;
-        padding-bottom: 2px;
-      }
-      .row .grade {
-        font-size: 11px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        text-align: right;
-        color: rgba(23, 21, 15, 0.55);
-        line-height: 1.6;
-      }
-
-      footer {
-        margin-top: auto;
-        padding-top: 56px;
-      }
-      footer .bar {
-        height: 2px;
-        background: #17150f;
-      }
-      .colophon {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 24px;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin-top: 16px;
-        font-size: 12px;
-        letter-spacing: 0.04em;
-      }
-      .colophon .k {
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        color: rgba(23, 21, 15, 0.5);
-      }
-      .colophon .who {
-        margin-top: 8px;
-        font-size: 15px;
-      }
-      .colophon a {
-        border-bottom: 2px solid #c8ff2e;
-        padding-bottom: 1px;
-      }
-      .colophon .nav {
-        text-align: right;
-        color: rgba(23, 21, 15, 0.5);
-      }
-      .colophon .nav .links {
-        color: #17150f;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="page">
@@ -230,9 +24,12 @@
 
       <div class="masthead">
         <div class="eyebrow">The SHEEP class index</div>
-        <h1>A small, fast home<br />for every SHEEP <span class="hl">class site</span>.</h1>
+        <h1>
+          A small home for<br />
+          every SHEEP <span class="hl">class site</span>.
+        </h1>
         <p class="lede">
-          Each class gets its own tiny website — notes, guides, syllabi — written in markdown and published in a
+          Each class gets its own tiny website - notes, guides, syllabi - written in markdown and published in a
           keystroke. Three are live so far, with more as teachers bring them.
         </p>
       </div>
@@ -278,16 +75,11 @@
           <div>
             <div class="k">Built &amp; taught by</div>
             <div class="who">
-              Nathan Strutz &mdash;
-              <a href="mailto:nathan@sheep.education">nathan@sheep.education</a>
+              Nathan Strutz &mdash; <a href="mailto:nathan@sheep.education">nathan@sheep.education</a>
             </div>
           </div>
           <div class="nav">
-            <div class="links">
-              <a href="/about">About</a> &middot;
-              <a href="/teachers">For teachers</a>
-            </div>
-            <div style="margin-top: 6px">more coming soon</div>
+            <div class="links"><a href="about.html">About</a> &middot; <a href="teachers.html">For teachers</a></div>
           </div>
         </div>
       </footer>
