@@ -3,14 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>About — sheep.fyi</title>
+    <title>About | sheep.fyi</title>
     <meta name="description" content="About sheep.fyi and the SHEEP class sites — built and taught by Nathan Strutz." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <style>
       * {
         box-sizing: border-box;
@@ -112,29 +111,13 @@
       .photo {
         aspect-ratio: 4 / 5;
         border: 1px solid rgba(23, 21, 15, 0.28);
-        background-image: repeating-linear-gradient(45deg, rgba(23, 21, 15, 0.05) 0 10px, transparent 10px 20px);
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 24px;
+        padding: 4px;
         position: relative;
-      }
-      .photo .tag {
-        font-size: 11px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: rgba(23, 21, 15, 0.55);
-        line-height: 1.8;
-      }
-      .photo .corner {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        font-size: 10px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: rgba(23, 21, 15, 0.4);
+        max-width: 360px;
       }
       .caption {
         margin-top: 12px;
@@ -159,14 +142,14 @@
         color: rgba(23, 21, 15, 0.78);
         margin: 0 0 18px;
       }
-      .prose .placeholder {
+      .prose section p {
         border-left: 2px solid #c8ff2e;
         padding: 4px 0 4px 18px;
         color: rgba(23, 21, 15, 0.5);
         font-size: 13px;
         line-height: 1.7;
       }
-      .prose .placeholder b {
+      .prose section b {
         color: #17150f;
       }
 
@@ -260,37 +243,36 @@
 
       <div class="masthead">
         <div class="eyebrow">About</div>
-        <h1>Who built <span class="hl">this</span>, and why.</h1>
+        <h1>What are we <span class="hl">doing</span> here?</h1>
       </div>
 
       <div class="body">
-        <div>
-          <div class="photo">
-            <div class="corner">4:5 portrait</div>
-            <div class="tag">drop photo here<br />&mdash;<br />replace this block<br />with your image</div>
-          </div>
-          <div class="caption">Nathan Strutz · CS teacher, SHEEP</div>
-        </div>
+        <picture>
+          <img class="photo" src="i/nathan.jpg" alt="Nathan (AI painted)" />
+          <figcaption class="caption">Nathan Strutz &middot; CS teacher, SHEEP</figcaption>
+        </picture>
 
         <div class="prose">
-          <p class="kick">Hi — I'm Nathan Strutz. I teach the computer classes at SHEEP, our homeschool co-op.</p>
+          <p class="kick">Hi, I'm Nathan, a computer teacher at SHEEP.</p>
 
-          <div class="placeholder">
-            <b>[ Your bio goes here ]</b><br />
-            Replace this block with a few paragraphs about yourself — your background, what you build, why you teach,
-            and what students can expect. Keep it in your own voice.
-          </div>
+          <section>
+            <p>
+              I've been building websites since 1995, programming professionally since 1997, and working with middle
+              school students at church youth groups since 2000. I started teaching programming in 2005, then joined
+              these passions together in 2020 - programming - teaching - and teenagers.
+            </p>
+            <p>My wife, Alanda, and I have 4 children - 3 home school graduates!</p>
+          </section>
 
           <p style="margin-top: 24px">
-            sheep.fyi is the little home page for the class sites I host. Each class gets its own small, fast website —
-            plain markdown, published in a keystroke — and this page ties them together. More classes and teachers will
-            join over time.
+            sheep.fyi hosts individual class websites. Each class gets its own small, basic website. More classes and teachers will
+            join over time. <a href="teachers.html">Interested?</a>
           </p>
 
           <div class="facts">
             <div class="fact">
               <div class="k">Teaches</div>
-              <div class="v">Fundamentals · CS · Programming</div>
+              <div class="v">Fundamentals &middot; CS &middot; Programming</div>
             </div>
             <div class="fact">
               <div class="k">Co-op</div>
@@ -318,13 +300,13 @@
           <div>
             <div class="k">Built &amp; taught by</div>
             <div class="who">
-              Nathan Strutz —
+              Nathan Strutz &mdash;
               <a href="mailto:nathan@sheep.education">nathan@sheep.education</a>
             </div>
           </div>
           <div class="nav">
             <div class="links">
-              <a href="/">Home</a> ·
+              <a href="/">Home</a> &middot;
               <a href="/teachers">For teachers</a>
             </div>
             <div style="margin-top: 6px">more coming soon</div>
